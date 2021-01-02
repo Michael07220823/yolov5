@@ -424,10 +424,8 @@ def train(hyp, opt, device, tb_writer=None, wandb=None):
                                           save_dir=save_dir,
                                           save_json=save_json,
                                           plots=False)
-
     else:
         dist.destroy_process_group()
-
     wandb.run.finish() if wandb and wandb.run else None
     torch.cuda.empty_cache()
     return results
